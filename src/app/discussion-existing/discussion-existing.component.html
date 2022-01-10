@@ -1,0 +1,51 @@
+<!-- Author: Bhumi Patel, Ganrong Tan -->
+<div class="background" >
+
+<div class="container register">
+    <div class="color row mdp">
+      <!-- <div class="login-form mdp"> -->
+      <div class="col-md-3 register-left">
+        <!-- <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/> -->
+        <h3>What's the time? Tutor Time!</h3>
+        <p>A place where learning made easy</p>
+        <br>
+      </div>
+      <div class=" change col-md-9 register-right">
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+            <div class="row register-form">
+              <div class="aling col-lg-12">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="row justify-content-end">
+                      <a routerLink="/discussion-new">
+                        <img class="addDiscussionImage" src="../../assets/images/AddDiscussionImage.png" alt="AddDiscussion" align="right">
+                      </a>
+
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div *ngFor="let post of posts">
+                      <div class="row">
+                        <div class="col-lg-10">
+                          <h3>
+                            {{ post.courseName }}
+                          </h3>
+                          <h2>{{ post.title}} </h2>
+                          <p>Announcement: <br/>{{ post.description }}</p>
+                          <div *ngIf="expression"></div>
+                        
+                        </div>
+
+                      </div>
+                      <hr>
+                    </div>
+
+                  </div>
+                </div>
+
+
+              </div></div></div></div></div></div></div>
+            </div>

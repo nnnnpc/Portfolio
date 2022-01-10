@@ -1,0 +1,58 @@
+<!-- Author: Bhumi Patel, Ganrong Tan -->
+<div class="background ">
+
+    <div class=" container register mdp">
+        <form #discussionForm="ngForm" (ngSubmit)="NewThread()" action="/dicussion" method="POST">
+            <div class="color row mdp">
+                <!-- <div class="login-form mdp"> -->
+                <div class="col-md-3 register-left">
+                    <!-- <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/> -->
+                    <h3>What's the time? Tutor Time!</h3>
+                    <p>A place where learning made easy</p>
+                    <br>
+                </div>
+                <div class=" change col-md-9 register-right">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <h3 class="register-heading">Announcement</h3>
+                            <div class="row register-form">
+                                <div class="aling col-md-10">
+
+
+                                    <div class="form-group">
+
+                                        <!-- For form validation I have referred to an YouTube video. I have put the link to this in the README.txt file -->
+
+                                        <label for="courseId">Enter Course Id</label>
+                                        <input type="text" class="form-control" id="courseId" required name="courseId" [(ngModel)]="DiscussionModel.courseID" #formCourseId="ngModel">
+                                        <div *ngIf="formCourseId.invalid && (formCourseId.dirty || formCourseId.touched)" class="alert alert-danger">
+
+                                            <div *ngIf="formCourseId.errors.required">Please enter Course Id</div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class=" form-group">
+                                        <label for="description">Description </label>
+                                        <textarea class="form-control" rows="4" id="description" name="description" [(ngModel)]="DiscussionModel.description" #formDescription="ngModel" pattern="[\s\S]{20,}" required></textarea>
+                                        <div *ngIf="formDescription.invalid && (formDescription.dirty || formDescription.touched)" class="alert alert-danger">
+
+                                            <div *ngIf="formDescription.errors.required">Please enter Discussion description</div>
+
+                                            <div *ngIf="formDescription.errors.pattern">At least 15 characters.</div>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button (click)="newPost();" class="btn btn-dark btn-block" type="submit" [disabled]="!discussionForm.form.valid">Add Discussion</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

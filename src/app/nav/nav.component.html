@@ -1,0 +1,21 @@
+<!-- I have referred some elements of the code present on this page from Bootstrap documentation. -->
+
+<nav class="navbar-expand-lg navbar navbar-dark bg-dark">
+    <a class="navbar-brand" style="font-size: x-large;" href="/tutortime">Tutor Time</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <!-- <a class="nav-link" routerLink="/addCourse" >{{item.text }}</a> -->
+            <li class="nav-item" *ngFor="let link of links">
+                <a class="nav-link" [routerLink]="link.path">{{ link.text }}</a>
+            </li>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            {{this.userLoggedIn}}
+        </ul>
+    </div>
+</nav>

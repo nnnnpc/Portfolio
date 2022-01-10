@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            width: 550px;
+            height: 550px;
+            margin: auto;
+            align-content: center;
+            font-family: arial;
+            margin-bottom: 110px;
+        }
+        
+        .title {
+            color: grey;
+            font-size: 18px;
+        }
+        
+        .img {
+            width: 300px;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            margin-top: 15px;
+        }
+        
+        .temp {
+            margin-left: 5px;
+            font-size: 20px;
+        }
+        
+        a {
+            text-decoration: none;
+            font-size: 22px;
+            color: black;
+        }
+        
+        button:hover,
+        a:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 style="text-align:center">My Account</h1>
+    <hr>
+    <br/>
+
+    <div class="card">
+        <img class="img" src="../../assets/images/tutor.jpeg" alt="John">
+        <h2 style="text-align: center">{{this.studentService.student.student_FName}} {{this.studentService.student.student_LName}}</h2>
+        <hr>
+        <p class="card-text temp"><b>Contact No:</b> {{this.studentService.student.student_PhoneNumber}}</p>
+        <p class="card-text temp"><b>Email address:</b>{{this.studentService.student.student_Email}}</p>
+        <p class="card-text temp"><b>Secret Question:</b>{{this.studentService.student.studentQuestion}}</p>
+        <p class="card-text temp"><b>Answer:</b>{{this.studentService.student.studentanswer}}</p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <div class="row">
+            <div class="col-lg-6">
+                <p><button routerLink="/update-profile">Update Profile</button></p>
+            </div>
+            <div class="col-lg-6">
+                <p><button routerLink="/delete-student-profile">Delete Profile</button></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!-- This Code is written by me to implemented Adavance functionality-->
+<div style="margin: 50px 25%;">
+    <h1>Advance Search</h1>
+    <hr><br/>
+    <form>
+        <div class="form-group">
+            <label for="course">Course </label>
+            <input type="text" class="form-control" name="course" #course placeholder="Enter your subject">
+        </div>
+        <div class="form-group">
+            <label for="course">City </label>
+            <input type="text" class="form-control" name="city" #city placeholder="Enter your city">
+        </div>
+
+        <button (click)="getTutorListByCourseNameLocation(course.value,city.value);">search</button>
+    </form>
+</div>
+<div class="row justify-content-md-center" style="margin-bottom: 350px;">
+    <div class="col col-lg-6 ">
+        <div *ngFor=" let tut of tutorService.tutors">
+            <div class="card" style="background-color: #DCDCDC;">
+                <div class="card-body ">
+
+                    <div class="row">
+                        <div class="col col-lg-5">
+                            <img class="card-img-top" src="../../assets/images/tutor.jpeg" alt="Card image" style="width:70%;height: 70%">
+                        </div>
+                        <div class="col col-lg-7">
+                            <h4 class="card-title ">Tutor Details</h4>
+                            <hr>
+                            <p class="card-text "><b>Name:</b> {{tut.name}}</p>
+                            <p class="card-text "><b>Course: </b>{{tut.courseName}}</p>
+                            <p class="card-text "><b>Location:  </b>{{tut.city}}</p>
+                            <p class="card-text "><b>skills: </b>{{tut.skills}}</p>
+                            <p class="card-text "><b>Description: </b>{{tut.description}}</p>
+                            <p class="card-text "><b>Fees/hour: </b>{{tut.fee}}</p>
+                            <a href="# " class="card-link" routerLink="/open-info" (click)="bookTutor(tut._id)">Book Tutor</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br/>
+        </div>
+    </div>
+</div>

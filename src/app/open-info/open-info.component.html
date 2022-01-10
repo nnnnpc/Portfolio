@@ -1,0 +1,40 @@
+<div class="form-group row mdp">
+    <div class="box-body col-sm-10 offset-sm-1" style="background-color: white;border: 1px solid gray;border-radius: 5px;box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);">
+        <div style="font-size: 23px;font-weight: bold;text-align: center;line-height: 2;">
+            BIO Details
+        </div>
+        <hr />
+        <div class="col-sm-12" style="margin-bottom: 20px;">
+            <div class="col-sm-6">
+                <img class="img-fluid" src="../../assets/images/tutor.jpeg " alt="undefined">
+            </div>
+            <div class="col-sm-6">
+                <div class="font-small grey-dark-text mb-0">
+                    <b style="padding: 5px;">Name :</b>{{this.tutorService.tutor.name}}
+                    <br>
+                    <b style="padding: 5px;">courseName :</b>{{this.tutorService.tutor.courseName}}
+                    <br>
+                    <b style="padding: 5px;">skills :</b>{{this.tutorService.tutor.skills}} years
+                    <br>
+                    <b style="padding: 5px;">Qualification :</b>{{this.tutorService.tutor.description}}
+                    <br>
+                    <!--  <b style="padding: 5px;">Favourite Subjects :</b>
+                    <ul>
+                        <li *ngFor="let item of ShowDetails.FavouriteSubject">{{item}}</li>
+                    </ul>
+                    <b style="padding: 5px;">Completed Bachlors From :</b>{{ShowDetails.CompBachlors}}
+                    <br>
+                    <b style="padding: 5px;">Completed Masters From :</b>{{ShowDetails.CompMasters}}
+                    <br>
+                    <b style="padding: 5px;">Fees :</b>{{ShowDetails.Fees}}
+                    <br>
+                    <b style="padding: 5px;">Feedback :</b>{{ShowDetails.Feedback}} -->
+                </div>
+            </div>
+        </div>
+        <div class="form-group" style="text-align:center;">
+            <button type="button" class="btn btn-fw dark" (click)="bookTutor()">Book Now</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-fw" routerLink="/advance-search">Cancel</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class=" d-flex flex-row-reverse ">
+    <div class=" container register">
+        <div class="row mdp">
+            <div *ngIf="tutorDashboardGroup?.length==0">
+                <div style="margin:100px auto;">
+
+                    <h1>
+                        You haven't added any courses yet !
+                    </h1>
+                    <br>
+                    <h2>
+                        Please add course.
+                    </h2>
+                    <br><br>
+                    <a href="/addCourse" class="btn btn-primary mce-btn-small">Add course</a>
+
+                </div>
+            </div>
+            <div class="column" *ngFor="let courses of tutorDashboardGroup">
+
+                <div class="card">
+                    <img src="../../assets/images/Carousel_first.jpg" style="width: 18rem;" class="card-img-top" alt="../../assets/images/Carousel_first.jpg">
+                    <div class="card-body ">
+                        <ul class="list-group list-group-flush size">
+                            <li class="list-group-item">Course ID : {{courses.courseID}} </li>
+
+                            <li class="list-group-item">Course Name : {{courses.courseName}} </li>
+
+
+                            <li class="list-group-item">Course Time : {{courses.timeSlot}}</li>
+                            <li class="list-group-item">Course Description : {{courses.description}}</li>
+                            <li class="list-group-item">Course Fee : {{courses.fee}}</li>
+                            <li class="list-group-item">Course enrollment: {{courses.count}} student</li>
+
+                            <p class="card-text "><small class="text-muted">Last Updated at: {{courses.currentTime}}</small></p>
+                            <a (click)="editCourse(courses.courseID);" class="btn btn-primary btn-block">Edit</a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

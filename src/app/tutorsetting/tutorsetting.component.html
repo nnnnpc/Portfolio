@@ -1,0 +1,113 @@
+<!-- <h2>CSS Layout Flexbox</h2>
+<p>In this example, we have created a header, two columns/boxes and a footer. On smaller screens, the columns will stack on top of each other.</p>
+<p>Resize the browser window to see the responsive effect.</p>
+<p><strong>Note:</strong> Flexbox is not supported in Internet Explorer 10 and earlier versions.</p> -->
+
+<!-- <header>
+  <h2>Profile Settings</h2>
+</header> -->
+
+<section>
+  <nav>
+    <ul>
+      <li><a href="#">Edit Profile</a></li>
+      <li><a href="#">Change Password</a></li>
+      <li><a href="#">Delete Profile</a></li>
+      <li><a href="#">FAQs</a></li>
+      <li><a href="#">Contact us</a></li>
+    </ul>
+  </nav>
+  
+  <article>
+    <h1>Hi, John!</h1>
+
+      <div class="col-md-5 ">
+    
+        <div class="container">
+          <div class="row">
+            <div class="col mr-auto">
+              <form #signForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="login-form mdp">
+                  <h4 class="text-center">Profile Settings</h4>
+                  
+            
+                  
+                  <img class="avatar" mat-card-image src="../../assets/images/avatar_business_costume_male_man_office_work_icon_628289.png" alt="John" style="width:50%">
+                
+                  <div class="form-group">
+                    <label for="name">Full Name</label>
+                    
+                    <input type="text" class="form-control" id="inputName" required
+                           name="Name" [(ngModel)]="model.name" #Name="ngModel">
+                           <i class="edit fa fa-pencil" aria-hidden="true"></i>
+                    <!-- <div [hidden]="Name.valid || Name.pristine" class="alert alert-danger">
+                      Name is required.
+                    </div> -->
+    
+                  </div>
+    
+                  <div class="form-group">
+                    <label for="email">Email ID</label>
+                    <input type="email" class="form-control" id="inputEmail" required 
+                           name="email" [(ngModel)]="model.email" #email="ngModel"
+                           pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$">
+                    <!--https://stackoverflow.com/questions/940577/javascript-regular-expression-email-validation-->       
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                      class="alert alert-danger">
+    
+                      <div *ngIf="email.errors.required"> Email Id is required</div>
+                      <div *ngIf="email.errors.pattern">Email must be valid.</div>
+    
+                    </div>
+                  </div>
+    
+    
+                  <div class="form-group">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" required
+                           name="password" [(ngModel)]="model.password" #password="ngModel"
+                           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                    <!--https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a-->
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                      
+                      <div *ngIf="password.errors.required">Password is required</div>
+                      <div *ngIf="password.errors.pattern">
+                        Password must contain at least one uppercase letter, and one lowercase letter, and one number
+                        and one special character (@,#,$..). Minimum 8 characters.
+                      </div>
+    
+                    </div>
+                  </div>
+    
+                  <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" required
+                           name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel"
+                           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                    
+                    <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="alert alert-danger">
+                      <div *ngIf="confirmPassword.errors.required">Password is required</div>
+                      <div *ngIf="confirmPassword.errors.pattern">
+                        Password must contain at least one uppercase letter, and one lowercase letter, and one number
+                        and one special character (@,#,$..). Minimum 8 characters.
+                      </div>
+    
+                    </div>
+                  </div>
+    
+                  <div class="form-group">
+                    <button class="btn btn-dark btn-block" type="submit" [disabled]="!signForm.form.valid">Sign up</button>
+                  </div>
+    
+                  <div class="container">
+                    <p class="text-center"><a class="nav-link" routerLink="/login">Already a Member? Log in.</a></p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </article>
+</section>

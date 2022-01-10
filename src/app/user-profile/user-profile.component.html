@@ -1,0 +1,126 @@
+<div class=" d-flex flex-row-reverse background">
+  <div class="col-md-5 ">
+
+    <div class="container">
+      <div class="row">
+        <div class="col mr-auto">
+          <form #profileForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="login-form mdp">
+              <div class="center">
+                <h4 class="text-center" style="color: #465D4C">Personal Profile</h4>
+                <small style="color: #8D742A; font-weight: bold;">Hi {{ profile.name }}, please fill out your personal profile</small>
+              </div>
+
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" required name="address" [(ngModel)]="profile.address"
+                  #address="ngModel" placeholder="Your address">
+                <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+
+                  <div *ngIf="address.errors.required"> Email Id is required</div>
+
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="tex" class="form-control" id="phoneNumber" required name="phoneNumber"
+                  [(ngModel)]="profile.phoneNumber" #phoneNumber="ngModel" pattern="\d{9}" placeholder="***-***-****">
+            
+                <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="alert alert-danger">
+
+                  <div *ngIf="phoneNumber.errors.required">Phone number is required</div>
+                  <div *ngIf="phoneNumber.errors.pattern">
+                    Please enter you nine-digit number(No dash).
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="occupation">Occupation</label>
+                <select class="form-control" id="occupation" name="occupation" 
+                        [(ngModel)]="profile.occupation" #occupation="ngModel">
+                  <option>Student</option>
+                  <option>Academia</option>
+                  <option>Business</option>
+                  <option>Freelancer</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Interest Subject</label>
+                <input type="text" class="form-control" id="subject" name="subject"
+                       [(ngModel)]="profile.subject" #subjet="ngModel">
+              </div>
+
+              <div class="form-row">
+
+                <div class="col-md-4 mb-3">
+                  <label for="city">City</label>
+                  <input type="text" class="form-control" id="city" required name="city" [(ngModel)]="profile.city" #city="ngModel">
+                  
+                  <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+                    <div *ngIf="city.errors.required">City is required</div>        
+                  </div>
+                </div>
+
+                <div class="col-md-4 mb-3"> 
+                  <label for="province">Province</label>
+                  <select class="form-control" id="province" class="form-control" required name="province" [(ngModel)]="profile.province" 
+                          #province="ngModel">
+                    <option>NS</option>
+                    <option>AB</option>
+                    <option>MB</option>
+                    <option>NB</option>
+                    <option>NL</option>
+                    <option>NT</option>
+                    <option>NU</option>
+                    <option>ON</option>
+                    <option>BC</option>
+                    <option>PE</option>
+                    <option>QC</option>
+                    <option>SK</option>
+                    <option>YT</option>
+                  </select>
+                  <div *ngIf="province.invalid && (province.dirty || province.touched)" class="alert alert-danger">
+                    <div *ngIf="province.errors.required">Province is required.</div>
+                  </div>
+                  <!-- <input type="text" class="form-control" id="province" required name="province" [(ngModel)]="profile.province"
+                    #province="ngModel">
+                    <div *ngIf="province.invalid && (province.dirty || province.touched)" class="alert alert-danger">
+                      <div *ngIf="province.errors.required">Province is required.</div>
+                    </div> -->
+                </div>
+                
+              
+                
+                <div class="col-md-4 mb-3">
+                  <label for="postalCode">Postal Code</label>
+                  <input type="text" class="form-control" id="postalCode" required name="postalCode" [(ngModel)]="profile.postalCode"
+                    #postalCode="ngModel" pattern="^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$">
+                  <!-- https://stackoverflow.com/questions/15774555/efficient-regex-for-canadian-postal-code-function -->
+                  <div *ngIf="postalCode.invalid && (postalCode.dirty || postalCode.touched)" class="alert alert-danger">
+                    
+                    <div *ngIf="postalCode.errors.required">Postal code is required.</div>
+
+                    <div *ngIf="postalCode.errors.pattern">Valid postal code is required.(A1A 1A1)</div>
+                    
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div class="form-group">
+                <button class="btn btn-dark btn-block" type="submit" [disabled]="!profileForm.form.valid">Next</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

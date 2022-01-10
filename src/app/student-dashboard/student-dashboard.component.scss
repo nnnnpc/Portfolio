@@ -1,0 +1,53 @@
+a:focus,
+a:hover,
+a {
+    outline: none;
+    text-decoration: none;
+}
+
+#navigation {
+    background: #343a40!important;
+    margin-Top: 40px;
+}
+
+.display-table-cell {
+    display: table-cell;
+    float: none;
+    height: 150%;
+    margin-bottom: 70px;
+}
+
+.icon-info {
+    position: relative;
+}
+
+.navi i {
+    font-size: 20px;
+}
+
+.home {
+    margin-Top: 40px;
+    margin-bottom: 100px;
+}
+
+.navi a {
+    border-bottom: 1px solid #0d172e;
+    border-top: 1px solid #0d172e;
+    color: #ffffff;
+    display: block;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 28px 20px;
+    text-decoration: none;
+}
+
+.navi i {
+    margin-right: 15px;
+    color: #ffffff;
+}
+
+.navi a:hover {
+    background: #122143 none repeat scroll 0 0;
+    display: block;
+    padding-left: 15px;
+}

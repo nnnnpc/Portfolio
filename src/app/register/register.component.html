@@ -1,0 +1,258 @@
+<div class="d-flex flex-row-reverse background">
+    <div class="container register">
+        <div class="color row mdp">
+
+            <!-- <div class="login-form mdp"> -->
+            <div class="col-md-3 register-left">
+                <!-- <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/> -->
+                <h3>What's the time? Tutor Time!</h3>
+                <p>A place where learning made easy</p>
+                <br>
+                <p class="log">Already a Member?</p>
+                <input type="submit" class="login" routerLink="/login" name="" value="Login" />
+            </div>
+            <div class="change col-md-9 register-right">
+                <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                    <li class="color nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Student</a>
+                    </li>
+                    <li class="color nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tutor</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading">Apply as a Student</h3>
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="full name">Full Name</label>
+                                    <input type="text" class="form-control" [formControl]="studentName" placeholder="Full Name *" id="inputName" required>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">City </label>
+                                    <input type="text" class="form-control" [formControl]="studentCity" placeholder="City *" id="inputName" required>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputPassword">Password</label>
+                                    <input type="password" class="form-control" id="inputPassword" [formControl]="studentPassword" required name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                                    <!-- https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a -->
+                                    <div *ngIf="studentPassword.invalid &&
+                                        (studentPassword.dirty ||
+                                        studentPassword.touched)" class="alert
+                                        alert-danger">
+
+
+                                        <div *ngIf="studentPassword.errors.required">Password is required</div>
+                                        <div *ngIf="studentPassword.errors.pattern">
+                                            Password must contain at least one uppercase letter, and one lowercase letter, and one number and one special character (@,#,$..). Minimum 8 characters.
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirm
+                                        Password</label>
+                                    <input type="password" class="form-control" id="confirmPassword" required [formControl]="studentConfirmPassword" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                                    <div *ngIf="studentConfirmPassword.invalid
+                                        && (studentConfirmPassword.dirty ||
+                                        studentConfirmPassword.touched)" class="alert alert-danger">
+                                        <div *ngIf="studentConfirmPassword.errors.required">Password is required</div>
+                                        <div *ngIf="studentConfirmPassword.errors.pattern">
+                                            Password must contain at least one uppercase letter, and one lowercase letter, and one number and one special character (@,#,$..). Minimum 8 characters.
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email">Email ID</label>
+                                    <!-- <input type="email" class="form-control" placeholder="Your Email *" value="" /> -->
+                                    <input type="email" class="form-control" placeholder="Your Email *" id="inputEmail" required [formControl]="studentEmail" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$">
+                                    <!-- https://stackoverflow.com/questions/940577/javascript-regular-expression-email-validation  -->
+                                    <div *ngIf="studentEmail.invalid &&
+                                        (studentEmail.dirty ||
+                                        studentEmail.touched)" class="alert
+                                        alert-danger">
+
+                                        <div *ngIf="studentEmail.errors.required">
+                                            Email Id is required</div>
+                                        <div *ngIf="studentEmail.errors.pattern">Email must be valid.</div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobile">Phone Number</label>
+                                    <input type="number" id="inputPhoneNumber" minlength="10" maxlength="10" name="txtEmpPhone" [formControl]="studentPhoneNumber" class="form-control" placeholder="Your
+                                        Phone *" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="Security">Security Question</label>
+                                    <select class="form-control" id="inputSecurityQuestion" [formControl]="studentQuestion" required>
+                                        <option class="hidden" selected
+                                            disabled>Please select your Sequrity
+                                            Question</option>
+                                        <option>What is your Birthdate?</option>
+                                        <option>What is Your old Phone Number</option>
+                                        <option>What is your Pet Name?</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="answer">Security Answer</label>
+                                    <input type="text" class="form-control" [formControl]="studentAnswer" id="inputSecurityAnswer" placeholder="Enter Your Answer *" required/>
+                                </div>
+                                <div class="form-group">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-dark btn-block" (click)="registerStudent()" data-toggle="modal" data-target="#exampleModalCenter">
+                                            Register
+                                        </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog
+                                                modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Successful Registration
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span
+                                                                aria-hidden="true">&times;</span>
+                                                        </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Login to continue.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <h3 class="register-heading">Apply as a Tutor</h3>
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="full name">Full Name</label>
+                                    <input type="text" class="form-control" [formControl]="full_name" placeholder="Full Name *" id="inputName" required name="Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="City">City </label>
+                                    <input type="text" class="form-control" [formControl]="tutorCity" placeholder="City *" id="inputName" required name="Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email ID</label>
+                                    <!-- <input type="email" class="form-control" placeholder="Your Email *" value="" /> -->
+                                    <input type="email" class="form-control" placeholder="Your Email *" id="inputEmail" required name="email" [formControl]="email" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$">
+                                    <!-- https://stackoverflow.com/questions/940577/javascript-regular-expression-email-validation  -->
+                                    <div *ngIf="email.invalid && (email.dirty ||
+                                        email.touched)" class="alert
+                                        alert-danger">
+
+                                        <div *ngIf="email.errors.required">
+                                            Email Id is required</div>
+                                        <div *ngIf="email.errors.pattern">Email must be valid.</div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="designation">Designation</label>
+                                    <!-- <input type="email" class="form-control" placeholder="Your Email *" value="" /> -->
+                                    <input type="text" class="form-control" placeholder="Your Designation *"  required name="designation" [formControl]="designation" pattern="^\w+@[a-zA-Z_]+?[a-zA-Z]{2,3}$">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Phone Number">Phone Number</label>
+                                    <input type="text" maxlength="10" minlength="10" id="phoneNumber" [formControl]="phoneNumber" class="form-control" placeholder="Phone
+                                        *" value="" /> 
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="inputPassword">Password</label>
+                                    <input type="password" class="form-control" id="inputPassword" [formControl]="password" required name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                                    <!-- https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a -->
+                                    <div *ngIf="password.invalid &&
+                                        (password.dirty || password.touched)" class="alert alert-danger">
+
+
+                                        <div *ngIf="password.errors.required">Password is required</div>
+                                        <div *ngIf="password.errors.pattern">
+                                            Password must contain at least one uppercase letter, and one lowercase letter, and one number and one special character (@,#,$..). Minimum 8 characters.
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirm
+                                        Password</label>
+                                    <input type="password" class="form-control" id="confirmPassword" required name="confirmPassword" [formControl]="confirmPassword" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                                    <div *ngIf="confirmPassword.invalid &&
+                                        (confirmPassword.dirty ||
+                                        confirmPassword.touched)" class="alert
+                                        alert-danger">
+                                        <div *ngIf="confirmPassword.errors.required">Password is required</div>
+                                        <div *ngIf="confirmPassword.errors.pattern">
+                                            Password must contain at least one uppercase letter, and one lowercase letter, and one number and one special character (@,#,$..). Minimum 8 characters.
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Security">Security Question</label>
+                                    <select class="form-control" [formControl]="securityquestion">
+                                        <option class="hidden" selected
+                                            disabled>Please select your Sequrity
+                                            Question</option>
+                                        <option>What is your Birthdate?</option>
+                                        <option>What is Your old Phone Number</option>
+                                        <option>What is your Pet Name?</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Security">Security Answer</label>
+                                    <input type="text" class="form-control" placeholder="Answer *" [formControl]="securityanswer" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-dark
+                                        btn-block" (click)="registerTutor()" data-toggle="modal" data-target="#exampleModalCenter1" >
+                                        Register
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog
+                                                    modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Successful Registration
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span
+                                                                    aria-hidden="true">&times;</span>
+                                                            </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Login to continue.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

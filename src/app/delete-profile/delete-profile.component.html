@@ -1,0 +1,64 @@
+<div class="background">
+
+    <div class="container register">
+        <!-- <form #deleteForm="ngForm" (ngSubmit)="onSuccessfulDeletion()"> -->
+        <div class="color row mdp">
+            <!-- <div class="login-form mdp"> -->
+            <div class="col-md-3 register-left">
+                <!-- <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/> -->
+                <h3>What's the time? Tutor Time!</h3>
+                <p>A place where learning made easy</p>
+                <br>
+            </div>
+            <div class=" change col-md-9 register-right">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading">Delete Account</h3>
+                        <div class="row register-form">
+                            <div class="aling col-md-10">
+                                <p>Deleting your account will permanantly remove your profile, personal settings,and all other associated information.Once your account is deleted,you will be logged out and will be unable to log back in.
+                                    <br>
+
+                                </p>
+
+                                <div class=" form-group">
+                                    <label for="feedback">Feedback: </label>
+                                    <textarea class="form-control" rows="4" id="formFeedback" name="feedback" [formControl]="formFeedback" required></textarea>
+                                    <div *ngIf="formFeedback.invalid && (formFeedback.dirty || formFeedback.touched)" class="alert alert-danger">
+                                        <div *ngIf="formFeedback.errors.required">Please enter Feedback</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-dark btn-block" type="submit" data-toggle="modal" (click)="onDelete()" data-target="#exampleModalCenter">
+                                      Delete Account</button>
+                                </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Delete Account</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure you want to delete the profile?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button mat-raised-button color="primary" (click)="onSuccessfulDeletion()">Yes </button>
+                                                <button mat-raised-button color="accent" (click)="oncanceldeletion()">No</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- </form> -->
+    </div>
+</div>
